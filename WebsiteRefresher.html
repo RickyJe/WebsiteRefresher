@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+var intervalId;
+var myWindow;
+function openWebsite() {
+  var website = document.getElementById("website").value;
+  var refresh = document.getElementById("refresh").value;
+  myWindow = window.open(website, "_blank");
+  intervalId = setInterval(function(){myWindow.location.href = website;}, refresh*1000);
+  document.getElementById("status").innerHTML = "Website is live and refreshing every " + refresh + " seconds.";
+}
+function stopRefresh() {
+  clearInterval(intervalId);
+  document.getElementById("status").innerHTML = "Website refresh stopped.";
+}
+</script>
+</head>
+<body>
+<input type="text" id="website" placeholder="Enter website URL">
+<input type="number" id="refresh" placeholder="Enter refresh time in seconds">
+<button onclick="openWebsite()">Open website</button>
+<button onclick="stopRefresh()">Stop Refresh</button>
+<p id="status"></p>
+</body>
+</html>
