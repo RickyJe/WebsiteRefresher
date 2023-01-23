@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+var intervalId;
+var myWindow;
+function openWebsite() {
+  var website = "https://yourit.va.gov/nav_to.do?uri=%2Fincident_list.do%3Fsysparm_query%3Dactive%3Dtrue%5EpriorityIN1,2%5Eincident_stateIN1,-5,2%26sysparm_first_row%3D1%26sysparm_view%3D";
+  var refresh = 60;
+
+  myWindow = window.open(website, "_blank");
+  intervalId = setInterval(function(){myWindow.location.href = website;}, refresh*1000);
+  document.getElementById("status").innerHTML = "Website is live and refreshing every " + refresh + " seconds.";
+}
+function stopRefresh() {
+  clearInterval(intervalId);
+  document.getElementById("status").innerHTML = "Website refresh stopped.";
+}
+</script>
+</head>
+<body>
+<button onclick="openWebsite()">Open website</button>
+<button onclick="stopRefresh()">Stop Refresh</button>
+<p id="status"></p>
+</body>
+</html>
