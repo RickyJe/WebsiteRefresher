@@ -1,4 +1,4 @@
-# WebsiteRefresher
+# WebsiteRefresher.
 refresh website without extensions
 
 1)	Save this file attached and open it should automatically open in the browser.
